@@ -1,0 +1,37 @@
+/**********navbar************/
+#menu.Sticky
+{
+position:fixed;
+height:50px;
+z-index:10;
+background:white;
+box-shadow:2px 2px 2px black;
+width:100%;
+
+}
+#menu{
+	min-height: 60px;
+}
+#menu ul li a{
+color: white;
+}
+#menu ul li a:hover
+{
+color:#00C851;
+}
+.carousel-inner > .carousel-item > img {
+  width:640px;
+  height:580px;
+}
+.footer{
+background:rgba(10, 10,40, .8);
+}
+.footer span a{
+	color: white;
+	text-decoration: none;
+}
+.footer span a:hover{
+	color: #00C851;
+	font-size: 17px;
+}
+

@@ -1,0 +1,136 @@
+{% load staticfiles %}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href= {% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}>
+<link rel = "stylesheet" type="text/css" href = {% static 'css/style.css' %}>
+
+</head>
+<body>
+  {% for message in messages %}
+	  <div class="row col-sm-6 col-xs-12 col-md-4" style="position:fixed; right:20px; top:20px">
+		<div class="col-sm-12 col-xs-12 col-md-12">
+			<div class="alert {{ message.tags }} alert-dismissable">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				{{message }}
+      </div>
+		</div>
+	  </div>
+    {% endfor %}
+<div class="container">
+
+
+  <!---<form action = "/registring_user/" method ="post">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+    {{ form.user_name.errors }}
+    <label for="{{ form.user_name.id_for_label }}">User name:</label>
+    {{ form.user_name }}
+    </div>
+
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+    {{ form.password.errors }}
+    <label for="{{ form.password.id_for_label }}">Password:</label>
+    {{ form.password }}
+    </div>
+
+    <input type = "submit" value = "Submit" />
+
+  </form>
+  -->
+
+
+    <ul class="nav nav-tabs center" style="padding:20 0 0 10  ;">
+      <li class = "nav-item  center"><a class="nav-link" data-toggle="tab" href="#">Login</a></li>
+      <li class="nav-item center"><a class ="nav-link" data-toggle="tab" href="/register">Register</a></li>
+    </ul>
+
+      <div class="omb_login">
+
+      	<!--<h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>-->
+  		<div class="row omb_row-sm-offset-3 omb_socialButtons">
+      	    <div class="col-xs-4 col-sm-2">
+  		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+  			        <i class="fa fa-facebook visible-xs"></i>
+  			        <span class="hidden-xs">Facebook</span>
+  		        </a>
+  	        </div>
+          	<div class="col-xs-4 col-sm-2">
+  		        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+  			        <i class="fa fa-twitter visible-xs"></i>
+  			        <span class="hidden-xs">Twitter</span>
+  		        </a>
+  	        </div>
+          	<div class="col-xs-4 col-sm-2">
+  		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+  			        <i class="fa fa-google-plus visible-xs"></i>
+  			        <span class="hidden-xs">Google+</span>
+  		        </a>
+  	        </div>
+  		</div>
+
+  		<div class="row omb_row-sm-offset-3 omb_loginOr">
+  			<div class="col-xs-12 col-sm-6">
+  				<hr class="omb_hrOr">
+  				<span class="omb_spanOr">or</span>
+  			</div>
+  		</div>
+      <div id = "login">
+  		<div  class="row omb_row-sm-offset-3">
+  			<div class="col-xs-12 col-sm-6">
+  			    <form class="omb_loginForm" action="/registring_user/" autocomplete="off" method="POST">
+              {% csrf_token %}
+              {{ form.non_field_errors }}
+  					<div class="input-group">
+              {{ form.user_name.error }}
+
+  						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+  					   {{ form.user_name }}
+  					</div>
+  					<span class="help-block"></span>
+
+  					<div class="input-group">
+              {{ form.password.error }}
+  						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+  						{{ form.password }}
+  					</div>
+                      <span class="help-block">re enter your password</span>
+                      <div class="input-group">
+                        {{ form.re_password.error }}
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        {{ form.re_password }}
+                      </div>
+                {% if form.password == form.re_password %}
+                      <span class = "help-block">passwords do not match</span>
+                      {% else %}
+                      password matched
+                      {% endif %}
+  					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  				</form>
+  			</div>
+      	</div>
+  		<div class="row omb_row-sm-offset-3">
+  			<div class="col-xs-12 col-sm-3">
+  				<label class="checkbox">
+  					<input type="checkbox" value="remember-me">Remember Me
+  				</label>
+  			</div>
+  			<div class="col-xs-12 col-sm-3">
+  				<p class="omb_forgotPwd">
+  					<a href="#">Forgot password?</a>
+  				</p>
+  			</div>
+  		</div>
+
+    </div>
+
+  	</div>
+
+
+
+        </div>
+</body>

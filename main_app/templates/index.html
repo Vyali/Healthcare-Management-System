@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!-- jha bhi {% % }
+y chij h hta dena agar django nahi use kr rahi to waise code bootstrap k documentation m h kuch kuch wha s help le skti-->
+
+{% block content %}
+<!-- carousal view -->
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{% static 'images/img1.jpeg' %}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/img2' %}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'images/img3' %}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon nav-text-active" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class = "row">
+{% for s in scards %}
+
+<div class="card" style="width: 20rem; margin-left: 50px; margin-top:20px;">
+  <img class="card-img-top" src="{% static 'images/img2'%}" alt="Card image cap">
+<div style = "padding-top:10; padding-left:20;">
+    <div class="card-body">
+    <h4 class="card-title">{{ s.name }}</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+{% if forloop.counter|divisibleby:3 %}
+</div> <div class = "row">
+  {% endif %}
+
+{% endfor %}
+</div>
+{% endblock %}

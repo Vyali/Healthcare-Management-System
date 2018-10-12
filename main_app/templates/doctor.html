@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+<div class = "col-md-2 col-sm-2" style = "padding-top:20px; padding-left:25px;">
+<main class="cd-main-content" >
+
+	<div class="cd-filter">
+		<form class="form" method="POST">                 <!--form for filter-->
+			<a href="#1" class="cd-close" style="margin-right:60px;"><i class="fa fa-check" aria-hidden="true"></i></a>
+			<a href="#0" class="cd-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+			<div class="cd-filter-block">   <!--for searching by name-->
+				<h4 class="h4" style="color:#000; font-family: 'Merriweather', serif; font-size:150%" >Search by name</h4>
+
+				<div >
+					<input type="search" style="color:#000; font-size:100%" placeholder="Type name here">
+				</div> <!-- cd-filter-content -->
+			</div> <!-- cd-filter-block -->
+
+			<div class="cd-filter-block">
+				<h4 style="color:#000; font-size:120%">City</h4>       <!-- for checkbox-->
+
+				<ul class="cd-filter-content cd-filters list"  style="color:#000; font-size:120%">
+					<li>
+						<input class="filter" data-filter=".check1" type="checkbox" id="checkbox1">
+							<label class="checkbox-label" for="checkbox1">city 1</label>
+					</li>
+
+					<li>
+						<input class="filter" data-filter=".check2" type="checkbox" id="checkbox2">
+						<label class="checkbox-label" for="checkbox2">city 2</label>
+					</li>
+
+					<li>
+						<input class="filter" data-filter=".check3" type="checkbox" id="checkbox3">
+						<label class="checkbox-label" for="checkbox3">city 3</label>
+					</li>
+				</ul> <!-- cd-filter-content -->
+			</div> <!-- cd-filter-block -->
+
+			<div  style="color:#000; font-size:150%" class="cd-filter-block">
+				<h4 style="color:#000;">Experience</h4>
+ <!-- cd-filter-content -->
+				<div class="dropdown" >
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Choose years</a>
+    <a class="dropdown-item" href="#">1 or more year</a>
+    <a class="dropdown-item" href="#">2 or more years</a>
+		<a class="dropdown-item" href="#">5 or more years</a>
+		<a class="dropdown-item" href="#">10 or more years</a>
+  </div>
+</div>
+			</div> <!-- cd-filter-block -->
+
+			<div class="cd-filter-block" style="color:#000; font-size:150%">
+				<h4 style="color:#000;">Reviews</h4>
+
+				<ul class="cd-filter-content cd-filters list" >
+					<li>
+						<input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
+						<label class="radio-label" for="radio1">All</label>
+					</li>
+
+					<li>
+						<input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
+						<label class="radio-label" for="radio2">More than 10</label>
+					</li>
+
+					<li>
+						<input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
+						<label class="radio-label" for="radio3">More than 100</label>
+					</li>
+				</ul> <!-- cd-filter-content -->
+			</div> <!-- cd-filter-block -->
+		</form>
+
+	</div> <!-- cd-filter -->
+
+	<a href="#0" class="cd-filter-trigger">Filters</a>
+</main> <!-- cd-main-content -->
+</div>
+
+<div class = "col-md-10" style="margin-top:50px;">
+
+
+	<div class = "row">
+
+		 {% for key, value in user.items %}
+
+	  <div class="col-md-5">
+	    <div class="card" style="width: 20rem; margin-left: 100px; margin-top:20px;">
+	      <img class="card-img-top" src="{% static 'images/img2'%}" alt="Card image cap">
+	    <div style = "padding-top:10; padding-left:20;">
+	        <div class="card-body">
+	          <div class = "row">
+
+	        <h4 class="card-title col-md-10 text-left">Name of hospital</h4>
+	        <h4 class = "col-md-2 text-right">{{ value.rating }}</h4>
+	      </div>
+	      <div class="row">
+	        <p class="card-text text-center">Near this gali no 4 golghar Gorakhpur up India.</p>
+	        <p class = "col-md-6">Available beds</p>
+	        <p class = "col-md-6 text-right">100</p>
+	        <p class = "col-md-6">Total beds</p>
+	        <p class = "col-md-6 text-right">100</p>
+	        <a href="#" class="btn btn-primary" style="margin-left:18px;">book bed</a>
+	      </div>
+	    </div>
+	    </div>
+	    </div>
+
+	  </div>
+		{% if forloop.counter|divisibleby:2 %}
+		</div> <div class="row">
+		{% endif %}
+{% endfor %}
+
+	  </div>
+
+	</div>
+
+</div>
+
+
+
+
+
+<script src={% static 'js/jquery-2.1.1.js' %}></script>
+
+<script src={% static 'js/main.js' %}></script>         <!-- Resource jQuery -->
+
+
+
+
+
+{% endblock %}

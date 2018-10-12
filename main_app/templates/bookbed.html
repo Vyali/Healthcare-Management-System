@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div>
+
+
+  <div class="row">
+    <div class = "col-md-3"><div style = margin-top:10px;>  <h2> BOOK BED </h2></div></div>
+    <div class = "col-md-3">
+
+      <div class="dropdown show"  style = margin-top:20px;>
+        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Category
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Cat1</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div>
+    <div class = "col-md-6">
+      <div id="custom-search-input" class = "border-left-0 border border-success" style ="margin-right:20px; margin-top:10px;">
+              <div class="input-group col-md-12 ">
+                  <input type="text" class="form-control form-control-md input-lg " placeholder="search by hospital name " />
+                  <span class="input-group-btn">
+                      <button class="btn btn-info btn-lg" type="button">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </span>
+              </div>
+          </div>
+      </div>
+</div>
+</div>
+
+<div class = "row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <div class="card" style="width: 20rem; margin-left: 50px; margin-top:20px;">
+      <img class="card-img-top" src="{% static 'images/img2'%}" alt="Card image cap">
+    <div style = "padding-top:10; padding-left:20;">
+        <div class="card-body">
+          <div class = "row">
+        <h4 class="card-title col-md-10 text-left">Name of hospital</h4>
+        
+        <h4 class = "col-md-2 text-right fa fa-star">5</h4>
+      </div>
+      <div class="row">
+        <p class="card-text text-center">Near this gali no 4 golghar Gorakhpur up India.</p>
+        <p class = "col-md-6">Available beds</p>
+        <p class = "col-md-6 text-right">100</p>
+        <p class = "col-md-6">Total beds</p>
+        <p class = "col-md-6 text-right">100</p>
+        <a href="#" class="btn btn-primary" style="margin-left:18px;" >book bed</a>
+      </div>
+    </div>
+    </div>
+    </div>
+
+  </div>
+  <div class= "col-md-2">
+  </div>
+</div>
+
+
+{% endblock %}
